@@ -18,7 +18,7 @@ public class AfiliadoController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(AfiliadoController.class);
 
 	@RequestMapping(value = {
-			"/sor/afiliados" }, method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
+			"/sor/createAfiliados" }, method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
 	public ResponseEntity<Afiliados> afiliadosSoR(@RequestBody(required = true) Afiliados afiliadoRQ) {
 		LOGGER.info("Recibiendo petición para insertar SOR");
 		ResponseEntity<Afiliados> response = null;

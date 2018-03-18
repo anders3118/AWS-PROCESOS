@@ -2,7 +2,7 @@ package com.procesos.colpensionesSoR.model;
 
 public class Afiliados {
 
-	private long idAfiliadoSystema;
+	private String idAfiliadoSystema;
 	private String segmentoAfiliado;
 	private String estadoProcAfiliado;
 	
@@ -10,7 +10,7 @@ public class Afiliados {
 		super();
 	}
 	
-	public Afiliados(long idAafiliado, long idAfiliadoSystema, String segmentoAfiliado, String estadoProcAfiliado) {
+	public Afiliados(String idAfiliadoSystema, String segmentoAfiliado, String estadoProcAfiliado) {
 		super();
 		this.idAfiliadoSystema = idAfiliadoSystema;
 		this.segmentoAfiliado = segmentoAfiliado;
@@ -18,7 +18,7 @@ public class Afiliados {
 	}
 
 
-	public long getIdAfiliadoSystema() {
+	public String getIdAfiliadoSystema() {
 		return idAfiliadoSystema;
 	}
 
@@ -31,7 +31,7 @@ public class Afiliados {
 	}
 
 
-	public void setIdAfiliadoSystema(long idAfiliadoSystema) {
+	public void setIdAfiliadoSystema(String idAfiliadoSystema) {
 		this.idAfiliadoSystema = idAfiliadoSystema;
 	}
 
