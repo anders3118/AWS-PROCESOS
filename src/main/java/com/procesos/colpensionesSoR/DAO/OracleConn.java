@@ -8,7 +8,7 @@ public class OracleConn {
 	
 	private static final String DB_DRIVER = "oracle.jdbc.driver.OracleDriver";
 	private static final String DB_CONNECTION = 
-							"jdbc:oracle:thin:@sorcolpensiones.crb00izbcgdj.us-east-1.rds.amazonaws.com:1521:orcl";
+							"jdbc:oracle:thin:@sorcolpensiones.crb00izbcgdj.us-east-1.rds.amazonaws.com:1521/orcl";
 	private static final String DB_USER = "sor";
 	private static final String DB_PASSWORD = "testing.14";
 

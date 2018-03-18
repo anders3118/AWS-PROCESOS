@@ -6,6 +6,10 @@ public class Afiliados {
 	private String segmentoAfiliado;
 	private String estadoProcAfiliado;
 	
+	public Afiliados() {
+		super();
+	}
+	
 	public Afiliados(long idAafiliado, long idAfiliadoSystema, String segmentoAfiliado, String estadoProcAfiliado) {
 		super();
 		this.idAfiliadoSystema = idAfiliadoSystema;

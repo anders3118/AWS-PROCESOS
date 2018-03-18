@@ -23,9 +23,9 @@ public class AfiliadosInsert {
 		Connection dbConn = null;
 		Statement insertStatement = null;
 
-		String queryInsert = "INSERT INTO AFILIADO_COLP VALUES ((SELECT AFILIADO_SEQ.NEXTVAL FROM DUAL),"
-				+ afiliado.getIdAfiliadoSystema() + "," + afiliado.getSegmentoAfiliado() + ","
-				+ afiliado.getEstadoProcAfiliado() + ",";
+		String queryInsert = "INSERT INTO SOR.AFILIADO_COLP VALUES ((AFILIADO_SEQ.NEXTVAL),'"
+				+ afiliado.getIdAfiliadoSystema() + "','" + afiliado.getSegmentoAfiliado() + "','"
+				+ afiliado.getEstadoProcAfiliado() + "')";
 
 		try {
 
