@@ -22,7 +22,7 @@ public class RulesServices {
 	public RulesRepository repository;
 
 	@RequestMapping(value = {
-			"/calcularPorcentajeLiquidacion" }, method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
+			"/rules/calcularPorcentajeLiquidacion" }, method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
 	public ResponseEntity<Afiliado> calcularPorcentajeLiquidacion(@RequestBody(required = true) Afiliado afiliadoRQ) {
 		ResponseEntity<Afiliado> response = null;
 		LOGGER.info("Recibiendo petición para calcular porcentaje de liquidación");
