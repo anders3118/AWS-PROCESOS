@@ -4,43 +4,38 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import javax.annotation.PostConstruct;
-
-import org.springframework.stereotype.Component;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.procesos.colpensionesSoR.DAO.OracleConn;
 import com.procesos.colpensionesSoR.model.Afiliados;
 
-
-@Component
 public class AfiliadosInsert {
-	
-	private final Afiliados afiliado;
-	
 
-	public AfiliadosInsert(Afiliados afiliado) {
+	private static final Logger LOGGER = LoggerFactory.getLogger(AfiliadosInsert.class);
+
+	public AfiliadosInsert() {
 		super();
-		this.afiliado = afiliado;
 	}
 
-	@PostConstruct
 	public void insertAfiliado(Afiliados afiliado) throws SQLException {
+		LOGGER.info("Ejecutando insertAfiliado ");
 		Connection dbConn = null;
 		Statement insertStatement = null;
-		
-		String queryInsert = "INSERT INTO AFILIADO_COLP VALUES ((SELECT AFILIADO_SEQ.NEXTVAL FROM DUAL)," +
-				getAfiliado().getIdAfiliadoSystema() + "," + getAfiliado().getSegmentoAfiliado() + "," + 
-				getAfiliado().getEstadoProcAfiliado() + ",";
-		
+
+		String queryInsert = "INSERT INTO AFILIADO_COLP VALUES ((SELECT AFILIADO_SEQ.NEXTVAL FROM DUAL),"
+				+ afiliado.getIdAfiliadoSystema() + "," + afiliado.getSegmentoAfiliado() + ","
+				+ afiliado.getEstadoProcAfiliado() + ",";
+
 		try {
-			
+
 			dbConn = OracleConn.getConnection();
 			insertStatement = dbConn.createStatement();
 			insertStatement.executeUpdate(queryInsert);
 
-		}catch (Exception e) {
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
-		}finally {
+		} finally {
 
 			if (insertStatement != null) {
 				insertStatement.close();
@@ -50,11 +45,7 @@ public class AfiliadosInsert {
 				dbConn.close();
 			}
 		}
-		
+
 	}
 
-	public Afiliados getAfiliado() {
-		return afiliado;
-	}
-	
 }
