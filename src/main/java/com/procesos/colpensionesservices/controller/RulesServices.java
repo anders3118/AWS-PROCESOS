@@ -21,17 +21,19 @@ public class RulesServices {
 	@Autowired
 	public RulesRepository repository;
 
+
 	@RequestMapping(value = {
-			"/rules/calcularPorcentajeLiquidacion" }, method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
+			"/rules/verificarNormatividad" }, method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
 	public ResponseEntity<Afiliado> calcularPorcentajeLiquidacion(@RequestBody(required = true) Afiliado afiliadoRQ) {
 		ResponseEntity<Afiliado> response = null;
-		LOGGER.info("Recibiendo petición para calcular porcentaje de liquidación");
+		LOGGER.info("Recibiendo petición para verificar Normatividad");
 		try {
 			repository.getKieSession().insert(afiliadoRQ);
 			repository.getKieSession().fireAllRules();
 			response = new ResponseEntity<>(afiliadoRQ, HttpStatus.OK);
+			LOGGER.info("Respuesta => " + afiliadoRQ);
 		} catch (Exception e) {
-			LOGGER.error("Error al calcular porcentaje de liquidación", e);
+			LOGGER.error("Error al verificar la normatividad", e);
 			response = new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		return response;

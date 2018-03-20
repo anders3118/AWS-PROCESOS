@@ -2,21 +2,25 @@ package com.procesos.colpensionesservices.model;
 
 public class Afiliado {
 
-	private Integer diasIncapacidad;
+	private Integer edad;
 	private Integer semanasCotizadas;
-	private Integer perdidaCapacidadLaboral;
-	private Integer porcentajeLiquidacion;
+	private Integer tiempoCotizacion;
+	private Boolean aplicaPensionInvalidez;
+	
+	private long idAfiliadoSystema;
+	private String segmentoAfiliado;
+	private String estadoProcAfiliado;
 
 	public Afiliado() {
 		super();
 	}
 
-	public Integer getDiasIncapacidad() {
-		return diasIncapacidad;
+	public Integer getEdad() {
+		return edad;
 	}
 
-	public void setDiasIncapacidad(Integer diasIncapacidad) {
-		this.diasIncapacidad = diasIncapacidad;
+	public void setEdad(Integer edad) {
+		this.edad = edad;
 	}
 
 	public Integer getSemanasCotizadas() {
@@ -27,28 +31,54 @@ public class Afiliado {
 		this.semanasCotizadas = semanasCotizadas;
 	}
 
-	public Integer getPerdidaCapacidadLaboral() {
-		return perdidaCapacidadLaboral;
+	public Integer getTiempoCotizacion() {
+		return tiempoCotizacion;
 	}
 
-	public void setPerdidaCapacidadLaboral(Integer perdidaCapacidadLaboral) {
-		this.perdidaCapacidadLaboral = perdidaCapacidadLaboral;
+	public void setTiempoCotizacion(Integer tiempoCotizacion) {
+		this.tiempoCotizacion = tiempoCotizacion;
 	}
 
-	public Integer getPorcentajeLiquidacion() {
-		return porcentajeLiquidacion;
+	public Boolean getAplicaPensionInvalidez() {
+		return aplicaPensionInvalidez;
 	}
 
-	public void setPorcentajeLiquidacion(Integer porcentajeLiquidacion) {
-		this.porcentajeLiquidacion = porcentajeLiquidacion;
+	public void setAplicaPensionInvalidez(Boolean aplicaPensionInvalidez) {
+		this.aplicaPensionInvalidez = aplicaPensionInvalidez;
+	}
+
+	public long getIdAfiliadoSystema() {
+		return idAfiliadoSystema;
+	}
+
+	public void setIdAfiliadoSystema(long idAfiliadoSystema) {
+		this.idAfiliadoSystema = idAfiliadoSystema;
+	}
+
+	public String getSegmentoAfiliado() {
+		return segmentoAfiliado;
+	}
+
+	public void setSegmentoAfiliado(String segmentoAfiliado) {
+		this.segmentoAfiliado = segmentoAfiliado;
+	}
+
+	public String getEstadoProcAfiliado() {
+		return estadoProcAfiliado;
+	}
+
+	public void setEstadoProcAfiliado(String estadoProcAfiliado) {
+		this.estadoProcAfiliado = estadoProcAfiliado;
 	}
 
 	@Override
 	public String toString() {
-		return "Afiliado [diasIncapacidad=" + diasIncapacidad + ", semanasCotizadas=" + semanasCotizadas
-				+ ", perdidaCapacidadLaboral=" + perdidaCapacidadLaboral + ", porcentajeLiquidacion="
-				+ porcentajeLiquidacion + "]";
+		return "Afiliado [edad=" + edad + ", semanasCotizadas=" + semanasCotizadas + ", tiempoCotizacion="
+				+ tiempoCotizacion + ", aplicaPensionInvalidez=" + aplicaPensionInvalidez + ", idAfiliadoSystema="
+				+ idAfiliadoSystema + ", segmentoAfiliado=" + segmentoAfiliado + ", estadoProcAfiliado="
+				+ estadoProcAfiliado + "]";
 	}
+	
 
 	
 	
