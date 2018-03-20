@@ -5,6 +5,7 @@ import java.sql.Date;
 public class Liquidacion {
 
 	private String numeroAfiliado;
+	private String baseCotizacion;
 	private String liquidacionPago;
 	private String liquidacionMora;
 	private String liquidacionStatus;
@@ -17,7 +18,7 @@ public class Liquidacion {
 		super();
 	}
 
-	public Liquidacion(String numeroAfiliado, String liquidacionPago, String liquidacionMora, String liquidacionStatus,
+	public Liquidacion(String numeroAfiliado, String baseCotizacion, String liquidacionPago, String liquidacionMora, String liquidacionStatus,
 			String liquidacionStatusMora, String liquidacionTotal, Date startDate, Date endDate) {
 		super();
 		this.numeroAfiliado = numeroAfiliado;
@@ -92,6 +93,14 @@ public class Liquidacion {
 
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
+	}
+
+	public String getBaseCotizacion() {
+		return baseCotizacion;
+	}
+
+	public void setBaseCotizacion(String baseCotizacion) {
+		this.baseCotizacion = baseCotizacion;
 	}
 
 }
