@@ -19,13 +19,19 @@ import org.springframework.stereotype.Component;
 public class RulesRepository {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(RulesRepository.class);
-	private KieSession kieSession;
+	private KieSession kieSessionNormatividad;
+	private KieSession kieSessionFavorabilidad;
 	
 	public RulesRepository() {
 	}
 
 	@PostConstruct
 	public void startUp() {
+		rulesVerificarnormatividad();
+		rulesFavorabilidad();
+	}
+	
+	private void rulesVerificarnormatividad() {
 		try {
 			KieServices kieServices = KieServices.Factory.get();
 			Resource dt = ResourceFactory.newClassPathResource("rules.xls", getClass());
@@ -39,19 +45,49 @@ public class RulesRepository {
 			ReleaseId krDefaultReleaseId = kieRepository.getDefaultReleaseId();
 			KieContainer kieContainer = kieServices.newKieContainer(krDefaultReleaseId);
 
-			this.kieSession = kieContainer.newKieSession();
+			this.kieSessionNormatividad = kieContainer.newKieSession();
 
 		} catch (Exception e) {
-			LOGGER.error("Error al cargar las reglas de negocio", e);
+			LOGGER.error("Error al cargar las reglas de negocio de normatividad", e);
+		}
+	}
+	
+	private void rulesFavorabilidad() {
+		try {
+			KieServices kieServices = KieServices.Factory.get();
+			Resource dt = ResourceFactory.newClassPathResource("rulesFavorabilidad.xls", getClass());
+			KieFileSystem kieFileSystem = kieServices.newKieFileSystem().write(dt);
+
+			KieBuilder kieBuilder = kieServices.newKieBuilder(kieFileSystem);
+			kieBuilder.buildAll();
+
+			KieRepository kieRepository = kieServices.getRepository();
+
+			ReleaseId krDefaultReleaseId = kieRepository.getDefaultReleaseId();
+			KieContainer kieContainer = kieServices.newKieContainer(krDefaultReleaseId);
+
+			this.kieSessionFavorabilidad = kieContainer.newKieSession();
+
+		} catch (Exception e) {
+			LOGGER.error("Error al cargar las reglas de negocio de favorabilidad", e);
 		}
 	}
 
-	public KieSession getKieSession() {
-		return kieSession;
+	public KieSession getKieSessionNormatividad() {
+		return kieSessionNormatividad;
 	}
 
-	public void setKieSession(KieSession kieSession) {
-		this.kieSession = kieSession;
+	public void setKieSessionNormatividad(KieSession kieSessionNormatividad) {
+		this.kieSessionNormatividad = kieSessionNormatividad;
 	}
 
+	public KieSession getKieSessionFavorabilidad() {
+		return kieSessionFavorabilidad;
+	}
+
+	public void setKieSessionFavorabilidad(KieSession kieSessionFavorabilidad) {
+		this.kieSessionFavorabilidad = kieSessionFavorabilidad;
+	}
+	
+	
 }

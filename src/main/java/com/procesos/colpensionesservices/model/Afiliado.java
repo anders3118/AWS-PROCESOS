@@ -5,11 +5,9 @@ public class Afiliado {
 	private Integer edad;
 	private Integer semanasCotizadas;
 	private Integer tiempoCotizacion;
-	private Boolean aplicaPensionInvalidez;
-	
-	private long idAfiliadoSystema;
-	private String segmentoAfiliado;
-	private String estadoProcAfiliado;
+	private boolean aplicaPensionInvalidez;
+	private boolean favorable;
+	private Integer perdidaCapacidadLaboral;
 
 	public Afiliado() {
 		super();
@@ -39,47 +37,35 @@ public class Afiliado {
 		this.tiempoCotizacion = tiempoCotizacion;
 	}
 
-	public Boolean getAplicaPensionInvalidez() {
+	public boolean getAplicaPensionInvalidez() {
 		return aplicaPensionInvalidez;
 	}
 
-	public void setAplicaPensionInvalidez(Boolean aplicaPensionInvalidez) {
+	public void setAplicaPensionInvalidez(boolean aplicaPensionInvalidez) {
 		this.aplicaPensionInvalidez = aplicaPensionInvalidez;
 	}
 
-	public long getIdAfiliadoSystema() {
-		return idAfiliadoSystema;
+	public boolean getFavorable() {
+		return favorable;
 	}
 
-	public void setIdAfiliadoSystema(long idAfiliadoSystema) {
-		this.idAfiliadoSystema = idAfiliadoSystema;
+	public void setFavorable(boolean favorable) {
+		this.favorable = favorable;
 	}
 
-	public String getSegmentoAfiliado() {
-		return segmentoAfiliado;
+	public Integer getPerdidaCapacidadLaboral() {
+		return perdidaCapacidadLaboral;
 	}
 
-	public void setSegmentoAfiliado(String segmentoAfiliado) {
-		this.segmentoAfiliado = segmentoAfiliado;
-	}
-
-	public String getEstadoProcAfiliado() {
-		return estadoProcAfiliado;
-	}
-
-	public void setEstadoProcAfiliado(String estadoProcAfiliado) {
-		this.estadoProcAfiliado = estadoProcAfiliado;
+	public void setPerdidaCapacidadLaboral(Integer perdidaCapacidadLaboral) {
+		this.perdidaCapacidadLaboral = perdidaCapacidadLaboral;
 	}
 
 	@Override
 	public String toString() {
 		return "Afiliado [edad=" + edad + ", semanasCotizadas=" + semanasCotizadas + ", tiempoCotizacion="
-				+ tiempoCotizacion + ", aplicaPensionInvalidez=" + aplicaPensionInvalidez + ", idAfiliadoSystema="
-				+ idAfiliadoSystema + ", segmentoAfiliado=" + segmentoAfiliado + ", estadoProcAfiliado="
-				+ estadoProcAfiliado + "]";
+				+ tiempoCotizacion + ", aplicaPensionInvalidez=" + aplicaPensionInvalidez + ", favorable=" + favorable
+				+ ", perdidaCapacidadLaboral=" + perdidaCapacidadLaboral + "]";
 	}
-	
 
-	
-	
 }
