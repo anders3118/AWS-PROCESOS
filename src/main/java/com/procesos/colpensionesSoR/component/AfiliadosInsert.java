@@ -18,7 +18,7 @@ public class AfiliadosInsert {
 		super();
 	}
 
-	public void insertAfiliado(Afiliados afiliado) throws SQLException {
+	public boolean insertAfiliado(Afiliados afiliado) throws SQLException {
 		LOGGER.info("Ejecutando insertAfiliado ");
 		Connection dbConn = null;
 		Statement insertStatement = null;
@@ -32,18 +32,19 @@ public class AfiliadosInsert {
 			dbConn = OracleConn.getConnection();
 			insertStatement = dbConn.createStatement();
 			insertStatement.executeUpdate(queryInsert);
-
+			return true;
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
+			return false;
 		} finally {
 
 			if (insertStatement != null) {
 				insertStatement.close();
 			}
 
-			if (dbConn != null) {
-				dbConn.close();
-			}
+//			if (dbConn != null) {
+//				dbConn.close();
+//			}
 		}
 
 	}

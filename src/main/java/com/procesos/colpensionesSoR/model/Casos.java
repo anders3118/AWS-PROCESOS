@@ -2,19 +2,29 @@ package com.procesos.colpensionesSoR.model;
 
 public class Casos {
 
+	private Integer idCaso;
 	private String numeroAfiliado;
 	private String descripcion;
-	private int casoAnterior;
-	
+	private Integer idCasoAnterior;
+
 	public Casos() {
 		super();
 	}
 
-	public Casos(String numeroAfiliado, String descripcion, int casoAnterior) {
+	public Casos(Integer idCaso, String numeroAfiliado, String descripcion, int idCasoAnterior) {
 		super();
+		this.idCaso = idCaso;
 		this.numeroAfiliado = numeroAfiliado;
 		this.descripcion = descripcion;
-		this.casoAnterior = casoAnterior;
+		this.idCasoAnterior = idCasoAnterior;
+	}
+
+	public Integer getIdCaso() {
+		return idCaso;
+	}
+
+	public void setIdCaso(Integer idCaso) {
+		this.idCaso = idCaso;
 	}
 
 	public String getNumeroAfiliado() {
@@ -33,12 +43,18 @@ public class Casos {
 		this.descripcion = descripcion;
 	}
 
-	public int getCasoAnterior() {
-		return casoAnterior;
+	public Integer getIdCasoAnterior() {
+		return idCasoAnterior;
 	}
 
-	public void setCasoAnterior(int casoAnterior) {
-		this.casoAnterior = casoAnterior;
+	public void setIdCasoAnterior(Integer idCasoAnterior) {
+		this.idCasoAnterior = idCasoAnterior;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Casos [idCaso=" + idCaso + ", numeroAfiliado=" + numeroAfiliado + ", descripcion=" + descripcion
+				+ ", idCasoAnterior=" + idCasoAnterior + "]";
+	}
+
 }

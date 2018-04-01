@@ -4,34 +4,23 @@ import java.sql.Date;
 
 public class Documentos {
 
-	private String numeroAfiliado;
+	private Integer idCaso;
 	private String documentName;
 	private String documentPath;
 	private String documentStatus;
 	private Date startDate;
 	private Date endDate;
-	
+
 	public Documentos() {
 		super();
 	}
 
-	public Documentos(String numeroAfiliado, String documentName, String documentPath, String documentStatus,
-			Date startDate, Date endDate) {
-		super();
-		this.numeroAfiliado = numeroAfiliado;
-		this.documentName = documentName;
-		this.documentPath = documentPath;
-		this.documentStatus = documentStatus;
-		this.startDate = startDate;
-		this.endDate = endDate;
+	public Integer getIdCaso() {
+		return idCaso;
 	}
 
-	public String getNumeroAfiliado() {
-		return numeroAfiliado;
-	}
-
-	public void setNumeroAfiliado(String numeroAfiliado) {
-		this.numeroAfiliado = numeroAfiliado;
+	public void setIdCaso(Integer idCaso) {
+		this.idCaso = idCaso;
 	}
 
 	public String getDocumentName() {
@@ -74,4 +63,9 @@ public class Documentos {
 		this.endDate = endDate;
 	}
 
+	@Override
+	public String toString() {
+		return "Documentos [idCaso=" + idCaso + ", documentName=" + documentName + ", documentPath=" + documentPath
+				+ ", documentStatus=" + documentStatus + ", startDate=" + startDate + ", endDate=" + endDate + "]";
+	}	
 }
