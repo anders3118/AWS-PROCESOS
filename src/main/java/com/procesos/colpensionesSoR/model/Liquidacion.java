@@ -4,6 +4,7 @@ import java.sql.Date;
 
 public class Liquidacion {
 
+	private Integer idCaso;
 	private String numeroAfiliado;
 	private String baseCotizacion;
 	private String liquidacionPago;
@@ -13,13 +14,14 @@ public class Liquidacion {
 	private String liquidacionTotal;
 	private Date startDate;
 	private Date endDate;
-	
+
 	public Liquidacion() {
 		super();
 	}
 
-	public Liquidacion(String numeroAfiliado, String baseCotizacion, String liquidacionPago, String liquidacionMora, String liquidacionStatus,
-			String liquidacionStatusMora, String liquidacionTotal, Date startDate, Date endDate) {
+	public Liquidacion(String numeroAfiliado, String baseCotizacion, String liquidacionPago, String liquidacionMora,
+			String liquidacionStatus, String liquidacionStatusMora, String liquidacionTotal, Date startDate,
+			Date endDate) {
 		super();
 		this.numeroAfiliado = numeroAfiliado;
 		this.liquidacionPago = liquidacionPago;
@@ -29,6 +31,14 @@ public class Liquidacion {
 		this.liquidacionTotal = liquidacionTotal;
 		this.startDate = startDate;
 		this.endDate = endDate;
+	}
+
+	public Integer getIdCaso() {
+		return idCaso;
+	}
+
+	public void setIdCaso(Integer idCaso) {
+		this.idCaso = idCaso;
 	}
 
 	public String getNumeroAfiliado() {

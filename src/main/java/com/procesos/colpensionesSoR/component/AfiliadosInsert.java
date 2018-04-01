@@ -42,9 +42,9 @@ public class AfiliadosInsert {
 				insertStatement.close();
 			}
 
-			if (dbConn != null) {
-				dbConn.close();
-			}
+//			if (dbConn != null) {
+//				dbConn.close();
+//			}
 		}
 
 	}
